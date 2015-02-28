@@ -3,8 +3,8 @@
 <p>The ItemGL plugin implements an application that simply lets the user customize an item using WebGL and ThreeJs.</p>
 
 <h2>Documentation</h2>
-To initialize the plugin call the constructor after $(document).ready() as below:
-  
+<p>To initialize the plugin call the constructor after $(document).ready() as below:</p>
+<pre>  
   $(document).ready(function(e) {
 		$("#canvas").ItemGL();
  	});
@@ -17,7 +17,7 @@ To initialize the plugin call the constructor after $(document).ready() as below
 		imagesItemA: ('.imagesA'),
 		imagesItemB: ('.imagesB') 
 	};
-
+</pre>
 <h2>The ItemGL Creator</h2>
 <p>ItemGL is maintained by <a href="https://github.com/llogaricasas" target="_blank">Llogari Casas</a></p>
 
