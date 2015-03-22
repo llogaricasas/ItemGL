@@ -1,6 +1,6 @@
 # ItemGL
 
-<h1>Please note! This plugin is still under development</h1>
+<h2 style="color: red;">Please note! This plugin is still under development</h2>
 <p>The ItemGL plugin implements an application that simply lets the user customize an item using WebGL and ThreeJs.</p>
 
 
