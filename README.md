@@ -1,6 +1,8 @@
 # ItemGL
 
+<h1>Please note! This plugin is still under development</h1>
 <p>The ItemGL plugin implements an application that simply lets the user customize an item using WebGL and ThreeJs.</p>
+
 
 <h2>Documentation</h2>
 <p>To initialize the plugin call the constructor after $(document).ready() as below:</p>
