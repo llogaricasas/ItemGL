@@ -31,52 +31,32 @@
 				$.extend(settings, this.options);
 			}
 			
-	        options.core.scene = new THREE.Scene();
-	        options.core.camera = new THREE.PerspectiveCamera(50, options.width/options.height, 0.1, 1000);
-	        options.core.renderer = new THREE.WebGLRenderer();
-	        options.core.renderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
-	        options.core.renderer.setSize(options.width, options.height);
-	        options.core.renderer.shadowMapEnabled = true;	
-	        var cubeGeometry = new THREE.BoxGeometry(15, 15, 15);
-	        //var meshMaterial = new THREE.MeshLambertMaterial({color: 0x7777ff});
-	        //options.core.object = methods.changeMaterial(cubeGeometry, 'images/Patterns/Leather/LeatherPattern01.jpg');
-	        //options.core.object = new THREE.Mesh(cubeGeometry, meshMaterial);
+		        options.core.scene = new THREE.Scene();
+		        options.core.camera = new THREE.PerspectiveCamera(50, options.width/options.height, 0.1, 1000);
+		        options.core.renderer = new THREE.WebGLRenderer();
+		        options.core.renderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
+		        options.core.renderer.setSize(options.width, options.height);
+		        options.core.renderer.shadowMapEnabled = true;	
+		        var cubeGeometry = new THREE.BoxGeometry(15, 15, 15);
 			options.core.object = methods.addMaterial(cubeGeometry, 'images/Resources/UVMap.png');
-	        options.core.object.receiveShadow = true;
-	        options.core.object.position.x = 8;
-	        options.core.object.position.y = 6;
-	        options.core.object.position.z = 3;
-	        options.core.scene.add(options.core.object);
-	        options.core.camera.position.x = 10;
-	        options.core.camera.position.y = 30;
-	        options.core.camera.position.z = 60;
-	        options.core.camera.lookAt(new THREE.Vector3(10, 0, 0));
-	        options.core.light = new THREE.AmbientLight(0x0c0c0c);
-	        options.core.scene.add(options.core.light);
-	        options.core.spotLight = new THREE.SpotLight(0xffffff);
-	        options.core.spotLight.position.set(-30, 60, 60);
-	        options.core.spotLight.castShadow = true;
-	        options.core.scene.add(options.core.spotLight);
-	        $("#"+options.id).append(options.core.renderer.domElement);
-	        
-	        /*
-		    var loader = new THREE.JSONLoader();
-	        loader.load('assets/misc_chair01.js', function (geometry, mat) {
-	            options.core.object = new THREE.Mesh(geometry, mat[0]);
-	            options.core.object.position.x = 8;
-				options.core.object.position.y = 1;
-				options.core.object.position.z = 3;
-	            options.core.scene.add(options.core.object);
-	            methods.setupButtons();
-	        });
-			*/
-		 
-			//->DISABLE FOR BUILD VERSION
+		        options.core.object.receiveShadow = true;
+		        options.core.object.position.x = 8;
+		        options.core.object.position.y = 6;
+		        options.core.object.position.z = 3;
+		        options.core.scene.add(options.core.object);
+		        options.core.camera.position.x = 10;
+		        options.core.camera.position.y = 30;
+		        options.core.camera.position.z = 60;
+		        options.core.camera.lookAt(new THREE.Vector3(10, 0, 0));
+		        options.core.light = new THREE.AmbientLight(0x0c0c0c);
+		        options.core.scene.add(options.core.light);
+		        options.core.spotLight = new THREE.SpotLight(0xffffff);
+		        options.core.spotLight.position.set(-30, 60, 60);
+		        options.core.spotLight.castShadow = true;
+		        options.core.scene.add(options.core.spotLight);
+		        $("#"+options.id).append(options.core.renderer.domElement);
 			methods.setupButtons();
-			
 			options.core.renderer.render(options.core.scene, options.core.camera);
-			
-			
 		},
 		
 		setupButtons: function(){
