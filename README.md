@@ -20,7 +20,13 @@
 			btnRight: $('#btnNext'),
 			imagesLeather: ('.imagesA'),
 			imagesWood: ('.imagesB'),
-			core: {object: null, renderer: null, camera: null, scene: null, light: null, canvas: null, spotLight: null},
+			core: {object: null,
+			       renderer: null, 
+			       camera: null, 
+			       scene: null, 
+			       light: null, 
+			       canvas: null, 
+			       spotLight: null },
 			items: {wood: null, leather: null},
 			geometry: {ground: null, cube: null}
 	}, options);
