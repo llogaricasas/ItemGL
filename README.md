@@ -1,9 +1,9 @@
 # ItemGL
 
-<h2 style="color: red;">Please note! This plugin is still under development</h2>
+<h2>Please note! This plugin is still under development</h2>
 <p>The ItemGL plugin implements an application that simply lets the user customize an item using WebGL and ThreeJs.</p>
-
-
+<h2>Live Demo</h2>
+<p>Under development live demo can be seen <a href="http://itemgl.kaleidoscop.net/" target="_blank">here</a></p>
 <h2>Documentation</h2>
 <p>To initialize the plugin call the constructor after $(document).ready() as below:</p>
 <pre>  
