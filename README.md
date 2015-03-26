@@ -26,7 +26,7 @@
 			       scene: null, 
 			       light: null, 
 			       canvas: null, 
-			       spotLight: null },
+			       spotLight: null},
 			items: {wood: null, leather: null},
 			geometry: {ground: null, cube: null}
 	}, options);
