@@ -5,6 +5,12 @@
 <h2>Live Demo</h2>
 <p>Under development live demo can be seen <a href="http://itemgl.kaleidoscop.net/" target="_blank">here</a></p>
 <h2>Documentation</h2>
+<h3>Requirements</h3>
+<pre>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/threejs/r69/three.min.js"></script>
+</pre>
+<h3>Initialization</h3>
 <p>To initialize the plugin call the constructor after $(document).ready() as below:</p>
 <pre>  
   $(document).ready(function(e) {
