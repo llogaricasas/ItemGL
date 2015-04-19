@@ -18,9 +18,13 @@
 		btnRight: $('#btnNext'),
 		imagesLeather: ('.imageWood'),
 		imagesWood: ('.imageWood'),
-		core: {object: null, renderer: null, camera: null, scene: null, light: null, canvas: null, spotLight: null},
+		core: {object: [], renderer: null, camera: null, scene: null, light: null, canvas: null, spotLight: null, group: null, interval: null},
 		items: {wood: null, leather: null},
-		geometry: {ground: null, cube: null}
+		geometry: {ground: null, cube: null},
+		numObj: 7,
+		objGeometry: [{x: 15, y: 1, z: 15}, {x: 2, y: 16, z: 2}, {x: 2, y: 16, z: 2}, {x: 2, y: 32, z: 2}, {x: 2, y: 32, z: 2},{x: 12, y: 3, z: 1},{x: 12, y: 3, z: 1}],
+		objPosition: [{x: 8, y: 6, z: 3}, {x: 1, y: -2, z: 10}, {x: 15, y: -2, z: 10}, {x: 1, y: 6, z: -5}, {x: 15, y: 6, z: -5}, {x: 8, y: 20, z: -5}, {x: 8, y: 15, z: -5}],
+		objType: ['Leather', 'Wood', 'Wood', 'Wood', 'Wood','Leather','Leather']
 	}, options);
 	
   	var methods = {
@@ -31,82 +35,73 @@
 				$.extend(settings, this.options);
 			}
 			
-		        options.core.scene = new THREE.Scene();
-		        options.core.camera = new THREE.PerspectiveCamera(50, options.width/options.height, 0.1, 1000);
-		        options.core.renderer = new THREE.WebGLRenderer();
-		        options.core.renderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
-		        options.core.renderer.setSize(options.width, options.height);
-		        options.core.renderer.shadowMapEnabled = true;	
-		        var cubeGeometry = new THREE.BoxGeometry(15, 15, 15);
-			options.core.object = methods.addMaterial(cubeGeometry, 'images/Resources/UVMap.png');
-		        options.core.object.receiveShadow = true;
-		        options.core.object.position.x = 8;
-		        options.core.object.position.y = 6;
-		        options.core.object.position.z = 3;
-		        options.core.scene.add(options.core.object);
-		        options.core.camera.position.x = 10;
-		        options.core.camera.position.y = 30;
-		        options.core.camera.position.z = 60;
-		        options.core.camera.lookAt(new THREE.Vector3(10, 0, 0));
-		        options.core.light = new THREE.AmbientLight(0x0c0c0c);
-		        options.core.scene.add(options.core.light);
-		        options.core.spotLight = new THREE.SpotLight(0xffffff);
-		        options.core.spotLight.position.set(-30, 60, 60);
-		        options.core.spotLight.castShadow = true;
-		        options.core.scene.add(options.core.spotLight);
-		        $("#"+options.id).append(options.core.renderer.domElement);
-			methods.setupButtons();
+	        options.core.scene = new THREE.Scene();
+	        options.core.camera = new THREE.PerspectiveCamera(50, options.width/options.height, 0.1, 1000);
+	        options.core.renderer = new THREE.WebGLRenderer();
+	        options.core.renderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
+	        options.core.renderer.setSize(options.width, options.height);
+	        options.core.renderer.shadowMapEnabled = true;
+	        options.core.group = new THREE.Object3D();		        
+	        for(var i=0; i<options.numObj; i++){
+		        var cubeGeometry = new THREE.BoxGeometry(options.objGeometry[i].x, options.objGeometry[i].y, options.objGeometry[i].z);
+		        options.core.object[i] = methods.addMaterial(cubeGeometry, 'images/Resources/UVMap.png');
+		        options.core.object[i].receiveShadow = true;
+		        options.core.object[i].position.x = options.objPosition[i].x;
+				options.core.object[i].position.y = options.objPosition[i].y;
+				options.core.object[i].position.z = options.objPosition[i].z;
+				options.core.group.add(options.core.object[i]);
+	        }
+	        options.core.scene.add(options.core.group);
+	        options.core.camera.position.x = 10;
+	        options.core.camera.position.y = 30;
+	        options.core.camera.position.z = 60;
+	        options.core.camera.lookAt(new THREE.Vector3(10, 0, 0));
+	        options.core.light = new THREE.AmbientLight(0x0c0c0c);
+	        options.core.scene.add(options.core.light);
+	        options.core.spotLight = new THREE.SpotLight(0xffffff);
+	        options.core.spotLight.position.set(-30, 60, 60);
+	        options.core.spotLight.castShadow = true;
+	        options.core.scene.add(options.core.spotLight);
+	        $("#"+options.id).append(options.core.renderer.domElement);
+			methods.render();
+			methods.setupButtons();			
 			options.core.renderer.render(options.core.scene, options.core.camera);
 		},
 		
 		setupButtons: function(){
 			options.btnLeft.hover(
 			  function(){
-				var render = function(){  
-					requestAnimationFrame(render);  
-					options.core.object.rotation.y += 0.05;
+				options.core.interval = window.setInterval(function(){
+					options.core.group.rotation.y += 0.05;
 					options.core.renderer.render(options.core.scene, options.core.camera);
-				}
-				render();
+				}, 15);
 			  }, function() {
-			    var render = function(){  
-					requestAnimationFrame(render);  
-					options.core.object.rotation.y -= 0.05;
-					options.core.renderer.render(options.core.scene, options.core.camera);
-				}
-				render();
+			    window.clearInterval(options.core.interval);
 			  }
 			);
 			options.btnRight.hover(
 			  function(){
-				var render = function(){  
-					requestAnimationFrame(render);  
-					options.core.object.rotation.y -= 0.05;
+				options.core.interval = window.setInterval(function(){
+					options.core.group.rotation.y -= 0.05;
 					options.core.renderer.render(options.core.scene, options.core.camera);
-				}
-				render();
+				}, 15);
 			  }, function() {
-			    var render = function(){  
-					requestAnimationFrame(render);  
-					options.core.object.rotation.y += 0.05;
-					options.core.renderer.render(options.core.scene, options.core.camera);
-				}
-				render();
+			    window.clearInterval(options.core.interval);
 			  }
 			);
 		},
 		
+		render: function(){
+			requestAnimationFrame(methods.render);  
+			options.core.renderer.render(options.core.scene, options.core.camera);
+		},
+		
 		changeItem: function(type, obj){
-			switch(type){
-				case 'Wood':
-					options.items.wood = parseInt(obj.id);
-					//var mat = new THREE.MeshPhongMaterial();
-					//mat.map = obj.firstChild.src;
-					//options.core.object.material = mat;
-				break;
-				case 'Leather':
-					options.items.leather = parseInt(obj.id);
-				break;	
+			var texture = THREE.ImageUtils.loadTexture(obj.firstChild.src);
+			for(var i=0; i<options.numObj; i++){
+				if(options.objType[i] == type){
+					options.core.object[i].material.map = texture;
+				}			
 			}
 		},
 		
@@ -114,9 +109,10 @@
 	            var texture = THREE.ImageUtils.loadTexture(imageFile)
 	            var mat = new THREE.MeshPhongMaterial();
 	            mat.map = texture;
+	            mat.needsUpdate = true;
 	            var mesh = new THREE.Mesh(geom, mat);
 	            return mesh;
-        	}
+	        }
 
 	};
   	
