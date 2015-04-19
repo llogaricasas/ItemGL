@@ -47,9 +47,9 @@
 		        options.core.object[i] = methods.addMaterial(cubeGeometry, 'images/Resources/UVMap.png');
 		        options.core.object[i].receiveShadow = true;
 		        options.core.object[i].position.x = options.objPosition[i].x;
-				options.core.object[i].position.y = options.objPosition[i].y;
-				options.core.object[i].position.z = options.objPosition[i].z;
-				options.core.group.add(options.core.object[i]);
+			options.core.object[i].position.y = options.objPosition[i].y;
+			options.core.object[i].position.z = options.objPosition[i].z;
+			options.core.group.add(options.core.object[i]);
 	        }
 	        options.core.scene.add(options.core.group);
 	        options.core.camera.position.x = 10;
