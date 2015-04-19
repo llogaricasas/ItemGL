@@ -17,6 +17,8 @@
 	$("#canvas").ItemGL();
   });
 </pre>
+<h3>Options</h3>
+<p></p>
 <h2>The ItemGL Creator</h2>
 <p>ItemGL is maintained by <a href="https://github.com/llogaricasas" target="_blank">Llogari Casas</a></p>
 
