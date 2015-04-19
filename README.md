@@ -18,7 +18,8 @@
   });
 </pre>
 <h3>Options</h3>
-<p></p>
+<p><b>width</b>[int: 960]<br /><span>Width for the container</span></p>
+<p><b>height</b>[int: 540]<br /><span>Height for the container</span></p>
 <h2>The ItemGL Creator</h2>
 <p>ItemGL is maintained by <a href="https://github.com/llogaricasas" target="_blank">Llogari Casas</a></p>
 
