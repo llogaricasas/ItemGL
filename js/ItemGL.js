@@ -11,8 +11,8 @@
 	
 	var options =  $.extend({
 		id: 'canvas',
-		width: 1110,
-		height: 650,
+		width: 960,
+		height: 540,
 		clearColor: 0xEEEEEE,
 		btnLeft: $('#btnPrevious'),
 		btnRight: $('#btnNext'),
