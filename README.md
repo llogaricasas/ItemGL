@@ -7,8 +7,8 @@
 <h2>Documentation</h2>
 <h3>Requirements</h3>
 <pre>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/threejs/r69/three.min.js"></script>
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/threejs/r69/three.min.js"&gt;&lt;/script&gt;
 </pre>
 <h3>Initialization</h3>
 <p>To initialize the plugin call the constructor after $(document).ready() as below:</p>
