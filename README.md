@@ -21,6 +21,9 @@
 <ul>
 	<li><b>width</b> [int: 960]<br /><i>Width for the container</i></li>
 	<li><b>height</b> [int: 540]<br /><i>Height for the container</i></li>
+	<li><b>clearColor</b> [threeJSColor: 0xEEEEEE]<br /><i>Canvas background Color</i></li>
+	<li><b>btnLeft</b> [Selector: '#btnPrevious']<br /><i>Turn Left button</i></li>
+	<li><b>btnRight</b> [Selector: '#btnNext']<br /><i>Turn Right button</i></li>
 </ul>
 <h2>The ItemGL Creator</h2>
 <p>ItemGL is maintained by <a href="https://github.com/llogaricasas" target="_blank">Llogari Casas</a></p>
