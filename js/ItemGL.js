@@ -35,34 +35,34 @@
 				$.extend(settings, this.options);
 			}
 			
-	        options.core.scene = new THREE.Scene();
-	        options.core.camera = new THREE.PerspectiveCamera(50, options.width/options.height, 0.1, 1000);
-	        options.core.renderer = new THREE.WebGLRenderer();
-	        options.core.renderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
-	        options.core.renderer.setSize(options.width, options.height);
-	        options.core.renderer.shadowMapEnabled = true;
-	        options.core.group = new THREE.Object3D();		        
-	        for(var i=0; i<options.numObj; i++){
-		        var cubeGeometry = new THREE.BoxGeometry(options.objGeometry[i].x, options.objGeometry[i].y, options.objGeometry[i].z);
-		        options.core.object[i] = methods.addMaterial(cubeGeometry, 'images/Resources/UVMap.png');
-		        options.core.object[i].receiveShadow = true;
-		        options.core.object[i].position.x = options.objPosition[i].x;
-			options.core.object[i].position.y = options.objPosition[i].y;
-			options.core.object[i].position.z = options.objPosition[i].z;
-			options.core.group.add(options.core.object[i]);
-	        }
-	        options.core.scene.add(options.core.group);
-	        options.core.camera.position.x = 10;
-	        options.core.camera.position.y = 30;
-	        options.core.camera.position.z = 60;
-	        options.core.camera.lookAt(new THREE.Vector3(10, 0, 0));
-	        options.core.light = new THREE.AmbientLight(0x0c0c0c);
-	        options.core.scene.add(options.core.light);
-	        options.core.spotLight = new THREE.SpotLight(0xffffff);
-	        options.core.spotLight.position.set(-30, 60, 60);
-	        options.core.spotLight.castShadow = true;
-	        options.core.scene.add(options.core.spotLight);
-	        $("#"+options.id).append(options.core.renderer.domElement);
+		        options.core.scene = new THREE.Scene();
+		        options.core.camera = new THREE.PerspectiveCamera(50, options.width/options.height, 0.1, 1000);
+		        options.core.renderer = new THREE.WebGLRenderer();
+		        options.core.renderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
+		        options.core.renderer.setSize(options.width, options.height);
+		        options.core.renderer.shadowMapEnabled = true;
+		        options.core.group = new THREE.Object3D();		        
+		        for(var i=0; i<options.numObj; i++){
+			        var cubeGeometry = new THREE.BoxGeometry(options.objGeometry[i].x, options.objGeometry[i].y, options.objGeometry[i].z);
+			        options.core.object[i] = methods.addMaterial(cubeGeometry, 'images/Resources/UVMap.png');
+			        options.core.object[i].receiveShadow = true;
+			        options.core.object[i].position.x = options.objPosition[i].x;
+				options.core.object[i].position.y = options.objPosition[i].y;
+				options.core.object[i].position.z = options.objPosition[i].z;
+				options.core.group.add(options.core.object[i]);
+		        }
+		        options.core.scene.add(options.core.group);
+		        options.core.camera.position.x = 10;
+		        options.core.camera.position.y = 30;
+		        options.core.camera.position.z = 60;
+		        options.core.camera.lookAt(new THREE.Vector3(10, 0, 0));
+		        options.core.light = new THREE.AmbientLight(0x0c0c0c);
+		        options.core.scene.add(options.core.light);
+		        options.core.spotLight = new THREE.SpotLight(0xffffff);
+		        options.core.spotLight.position.set(-30, 60, 60);
+		        options.core.spotLight.castShadow = true;
+		        options.core.scene.add(options.core.spotLight);
+		        $("#"+options.id).append(options.core.renderer.domElement);
 			methods.render();
 			methods.setupButtons();			
 			options.core.renderer.render(options.core.scene, options.core.camera);
@@ -106,12 +106,12 @@
 		},
 		
 		addMaterial: function(geom, imageFile){
-	            var texture = THREE.ImageUtils.loadTexture(imageFile)
-	            var mat = new THREE.MeshPhongMaterial();
-	            mat.map = texture;
-	            mat.needsUpdate = true;
-	            var mesh = new THREE.Mesh(geom, mat);
-	            return mesh;
+		        var texture = THREE.ImageUtils.loadTexture(imageFile)
+		        var mat = new THREE.MeshPhongMaterial();
+		        mat.map = texture;
+		        mat.needsUpdate = true;
+		        var mesh = new THREE.Mesh(geom, mat);
+		        return mesh;
 	        }
 
 	};
