@@ -8,28 +8,8 @@
 <p>To initialize the plugin call the constructor after $(document).ready() as below:</p>
 <pre>  
   $(document).ready(function(e) {
-		$("#canvas").ItemGL();
- 	});
-
- var options =  $.extend({
-			id: 'canvas',
-			width: 1100,
-			height: 650,
-			clearColor: 0xEEEEEE,
-			btnLeft: $('#btnPrevious'),
-			btnRight: $('#btnNext'),
-			imagesLeather: ('.imagesA'),
-			imagesWood: ('.imagesB'),
-			core: {object: null,
-			       renderer: null, 
-			       camera: null, 
-			       scene: null, 
-			       light: null, 
-			       canvas: null, 
-			       spotLight: null},
-			items: {wood: null, leather: null},
-			geometry: {ground: null, cube: null}
-	}, options);
+	$("#canvas").ItemGL();
+  });
 </pre>
 <h2>The ItemGL Creator</h2>
 <p>ItemGL is maintained by <a href="https://github.com/llogaricasas" target="_blank">Llogari Casas</a></p>
