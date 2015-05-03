@@ -42,15 +42,17 @@
 		        options.core.renderer.setSize(options.width, options.height);
 		        options.core.renderer.shadowMapEnabled = true;
 		        options.core.group = new THREE.Object3D();		        
+		    	var offset = methods.computeOffset();
 		        for(var i=0; i<options.numObj; i++){
 			        var cubeGeometry = new THREE.BoxGeometry(options.objGeometry[i].x, options.objGeometry[i].y, options.objGeometry[i].z);
 			        options.core.object[i] = methods.addMaterial(cubeGeometry, 'images/Resources/UVMap.png');
 			        options.core.object[i].receiveShadow = true;
-			        options.core.object[i].position.x = options.objPosition[i].x;
-				options.core.object[i].position.y = options.objPosition[i].y;
-				options.core.object[i].position.z = options.objPosition[i].z;
+			        options.core.object[i].position.x = options.objPosition[i].x - offset.x;
+				options.core.object[i].position.y = options.objPosition[i].y - offset.y;
+				options.core.object[i].position.z = options.objPosition[i].z - offset.z;
 				options.core.group.add(options.core.object[i]);
 		        }
+		        options.core.group.applyMatrix(new THREE.Matrix4().makeTranslation(offset.x, offset.y, offset.z));
 		        options.core.scene.add(options.core.group);
 		        options.core.camera.position.x = 10;
 		        options.core.camera.position.y = 30;
@@ -89,6 +91,27 @@
 			    window.clearInterval(options.core.interval);
 			  }
 			);
+		},
+		
+		computeOffset: function(){
+			var maxTrans  = {x:0, y:0, z:0};
+			var minTrans  = {x:0, y:0, z:0};
+			var translate2Center = {x:0, y:0, z:0};
+			
+			for(var i=0; i<options.objPosition.length; i++) {
+			    var temp = options.objPosition[i];		    
+			    if(temp.x > maxTrans.x){maxTrans.x = temp.x;}
+			    else if (temp.x < minTrans.x){ minTrans.x = temp.x;}
+			    if (temp.y > maxTrans.y){ maxTrans.y = temp.y;}
+			    else if (temp.y < minTrans.y){ minTrans.y = temp.y; }
+			    if (temp.z > maxTrans.z){ maxTrans.z = temp.z; }
+			    else if (temp.z < minTrans.z){ minTrans.z = temp.z; }
+			}
+			translate2Center.x = minTrans.x + (maxTrans.x-minTrans.x)/2;
+			translate2Center.y = minTrans.y + (maxTrans.y-minTrans.y)/2;
+			translate2Center.z = minTrans.z + (maxTrans.z-minTrans.z)/2;
+			
+			return translate2Center;			
 		},
 		
 		render: function(){
