@@ -9,6 +9,7 @@
 <pre>
   &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"&gt;&lt;/script&gt;
   &lt;script src="https://ajax.googleapis.com/ajax/libs/threejs/r69/three.min.js"&gt;&lt;/script&gt;
+  &lt;script src="js/ItemGL.min.js"&gt;&lt;/script&gt;
 </pre>
 <h3>Initialization</h3>
 <p>To initialize the plugin call the constructor after $(document).ready() as below:</p>
