@@ -25,6 +25,9 @@
 	<li><b>btnLeft</b> (Selector: '#btnPrevious')<br /><i>Turn Left button</i></li>
 	<li><b>btnRight</b> (Selector: '#btnNext')<br /><i>Turn Right button</i></li>
 </ul>
+<h2>Working objective</h2>
+<p>An application that will let the user customize an item using WebGL and ThreeJS following the UI in the image below.</p>
+![alt tag](http://itemgl.kaleidoscop.net/images/Demo.png)
 <h2>The ItemGL Creator</h2>
 <p>ItemGL is maintained by <a href="https://github.com/llogaricasas" target="_blank">Llogari Casas</a></p>
 
