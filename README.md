@@ -29,12 +29,12 @@
 </ul>
 <h3>Methods</h3>
 <ul>
-	<li><b>init</b> (void)<br /><i></i></li>
-	<li><b>render</b> (void)<br /><i></i></li>
+	<li><b>init</b> (void)<br /><i>Initializes the plugin</i></li>
+	<li><b>render</b> (void)<br /><i>Renders the scene</i></li>
 </ul>
 <ul>
-	<li><b>translateObject</b><br /><i></i></li>
-	<li><b>rotateObject</b><br /><i></i></li>
+	<li><b>translateObject</b><br /><i>Translates an object to the user selected point</i></li>
+	<li><b>rotateObject</b><br /><i>Rotates an object to the user selected point</i></li>
 	<li><b>hideObject</b><br /><i></i></li>
 	<li><b>deleteObject</b><br /><i></i></li>
 </ul>
@@ -42,6 +42,11 @@
 	<li><b>addCamera</b><br /><i></i></li>
 	<li><b>addLight</b><br /><i></i></li>
 	<li><b>addMaterial</b><br /><i></i></li>
+</ul>
+<ul>
+	<li><b>exportScene</b><br /><i></i></li>
+	<li><b>importScene</b><br /><i></i></li>
+	<li><b>executeScript</b><br /><i></i></li>
 </ul>
 <h2>The ItemGL Creator</h2>
 <p>ItemGL is maintained by <a href="https://github.com/llogaricasas" target="_blank">Llogari Casas</a></p>
