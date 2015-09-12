@@ -27,6 +27,16 @@
 	<li><b>btnLeft</b> (Selector: '#btnPrevious')<br /><i>Turn Left button</i></li>
 	<li><b>btnRight</b> (Selector: '#btnNext')<br /><i>Turn Right button</i></li>
 </ul>
+<h3>Methods</h3>
+<ul>
+	<li><b>init()</b></li>
+	<li><b>render()</b></li>
+	<li><b>-----------------------------------------------</b></li>
+	<li><b>translateObject()</b></li>
+	<li><b>rotateObject()</b></li>
+	<li><b>hideObject()</b></li>
+	<li><b>deleteObject()</b></li>
+</ul>
 <h2>The ItemGL Creator</h2>
 <p>ItemGL is maintained by <a href="https://github.com/llogaricasas" target="_blank">Llogari Casas</a></p>
 <h2>Thank you!</h2>
