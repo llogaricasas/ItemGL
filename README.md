@@ -33,19 +33,19 @@
 	<li><b>render</b> (void)<br /><i>Renders the scene</i></li>
 </ul>
 <ul>
-	<li><b>translateObject</b><br /><i>Translates an object to the user selected point</i></li>
-	<li><b>rotateObject</b><br /><i>Rotates an object to the user selected point</i></li>
-	<li><b>hideObject</b><br /><i></i></li>
-	<li><b>deleteObject</b><br /><i></i></li>
+	<li><b>translateObject</b> (void)<br /><i>Translates an object to the user selected point</i></li>
+	<li><b>rotateObject</b> (void)<br /><i>Rotates an object to the user selected point</i></li>
+	<li><b>hideObject</b> (void)<br /><i>Hides the selected object</i></li>
+	<li><b>deleteObject</b> (void)<br /><i>Deletes the selected object</i></li>
 </ul>
 <ul>
-	<li><b>addCamera</b><br /><i></i></li>
-	<li><b>addLight</b><br /><i></i></li>
-	<li><b>addMaterial</b><br /><i></i></li>
+	<li><b>addCamera</b> (threeJSCamera)<br /><i>Adds a camera to the current Scene</i></li>
+	<li><b>addLight</b> (threeJSPointLight)<br /><i>Adds a point light to the current Scene</i></li>
+	<li><b>addMaterial</b> (threeJSMaterial)<br /><i>Adds a material to the current Scene</i></li>
 </ul>
 <ul>
-	<li><b>exportScene</b><br /><i></i></li>
-	<li><b>importScene</b><br /><i></i></li>
+	<li><b>exportScene</b> (threeJSObject)<br /><i>Exports the current Scene in *.obj file format</i></li>
+	<li><b>importScene</b> (threeJSObject)<br /><i></i></li>
 	<li><b>executeScript</b><br /><i></i></li>
 </ul>
 <h2>The ItemGL Creator</h2>
