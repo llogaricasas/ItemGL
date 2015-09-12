@@ -1,9 +1,9 @@
 # ItemGL
 
-<h2>Please note! This plugin is still under development</h2>
 <p>The ItemGL plugin implements an application that simply lets the user customize an item using WebGL and ThreeJS.</p>
 <h2>Live Demo</h2>
-<p>Under development live demo can be seen <a href="http://itemgl.kaleidoscop.net/" target="_blank">here</a></p>
+<p>A live demo of the plugin can be seen <a href="http://digitalmediafinalproject.kaleidoscop.net/" target="_blank">here</a></p>
+![alt tag](http://itemgl.kaleidoscop.net/images/Demo.png)
 <h2>Documentation</h2>
 <h3>Requirements</h3>
 <pre>
@@ -27,11 +27,7 @@
 	<li><b>btnLeft</b> (Selector: '#btnPrevious')<br /><i>Turn Left button</i></li>
 	<li><b>btnRight</b> (Selector: '#btnNext')<br /><i>Turn Right button</i></li>
 </ul>
-<h2>Working objective</h2>
-<p>An application that will let the user customize an item using WebGL and ThreeJS following the UI in the image below.</p>
-![alt tag](http://itemgl.kaleidoscop.net/images/Demo.png)
 <h2>The ItemGL Creator</h2>
 <p>ItemGL is maintained by <a href="https://github.com/llogaricasas" target="_blank">Llogari Casas</a></p>
-
 <h2>Thank you!</h2>
 <p>I really appreciate all kind of feedback and contributions. Thanks for using and supporting ItemGL!</p>
