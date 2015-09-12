@@ -31,7 +31,8 @@
 <ul>
 	<li><b>init()</b></li>
 	<li><b>render()</b></li>
-	<li><b>-----------------------------------------------</b></li>
+</ul>
+<ul>
 	<li><b>translateObject()</b></li>
 	<li><b>rotateObject()</b></li>
 	<li><b>hideObject()</b></li>
