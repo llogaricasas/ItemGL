@@ -30,7 +30,7 @@
 <h3>Methods</h3>
 <ul>
 	<li><b>init</b> (void)<br /><i>Initializes the plugin</i></li>
-	<li><b>render</b> (void)<br /><i>Renders the scene</i></li>
+	<li><b>render</b> (void)<br /><i>Renders the current Scene</i></li>
 </ul>
 <ul>
 	<li><b>translateObject</b> (void)<br /><i>Translates an object to the user selected point</i></li>
@@ -45,8 +45,8 @@
 </ul>
 <ul>
 	<li><b>exportScene</b> (threeJSObject)<br /><i>Exports the current Scene in *.obj file format</i></li>
-	<li><b>importScene</b> (threeJSObject)<br /><i></i></li>
-	<li><b>executeScript</b><br /><i></i></li>
+	<li><b>importScene</b> (threeJSObject)<br /><i>Imports objects to the current Scene with *.obj, *.dae, *.json file format</i></li>
+	<li><b>executeScript</b> (void)<br /><i>Executes a JS script added by the user</i></li>
 </ul>
 <h2>The ItemGL Creator</h2>
 <p>ItemGL is maintained by <a href="https://github.com/llogaricasas" target="_blank">Llogari Casas</a></p>
