@@ -29,14 +29,19 @@
 </ul>
 <h3>Methods</h3>
 <ul>
-	<li><b>init()</b></li>
-	<li><b>render()</b></li>
+	<li><b>init</b> (void)<br /><i></i></li>
+	<li><b>render</b> (void)<br /><i></i></li>
 </ul>
 <ul>
-	<li><b>translateObject()</b></li>
-	<li><b>rotateObject()</b></li>
-	<li><b>hideObject()</b></li>
-	<li><b>deleteObject()</b></li>
+	<li><b>translateObject</b><br /><i></i></li>
+	<li><b>rotateObject</b><br /><i></i></li>
+	<li><b>hideObject</b><br /><i></i></li>
+	<li><b>deleteObject</b><br /><i></i></li>
+</ul>
+<ul>
+	<li><b>addCamera</b><br /><i></i></li>
+	<li><b>addLight</b><br /><i></i></li>
+	<li><b>addMaterial</b><br /><i></i></li>
 </ul>
 <h2>The ItemGL Creator</h2>
 <p>ItemGL is maintained by <a href="https://github.com/llogaricasas" target="_blank">Llogari Casas</a></p>
