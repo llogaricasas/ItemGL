@@ -3,7 +3,7 @@
 <p>The ItemGL plugin implements an application that simply lets the user customize an item using WebGL and ThreeJS.</p>
 <h2>Live Demo</h2>
 <p>A live demo of the plugin can be seen here: <a href="http://digitalmediafinalproject.kaleidoscop.net/" target="_blank">http://digitalmediafinalproject.kaleidoscop.net/</a></p>
-![alt tag](http://digitalmediafinalproject.kaleidoscop.net/img/Demo.png)
+![alt tag](http://digitalmediafinalproject.kaleidoscop.net/demo/img/Demo.png)
 <h2>Documentation</h2>
 <h3>Requirements</h3>
 <pre>
