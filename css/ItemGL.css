@@ -65,6 +65,7 @@ a.tool{cursor: pointer;}
 .modal .row{margin-top: 15px; margin-bottom: 15px;}
 .hidden{display: none;}
 .fileType{font-size: 10px; font-style: italic;}
+.ui-loader{display: none;}
 
 @media (min-width: 768px) and (max-width: 1024px) {
 	.topbar > div > ul > li:last-child{width: 159px;}
