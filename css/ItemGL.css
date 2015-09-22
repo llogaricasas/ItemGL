@@ -65,3 +65,16 @@ a.tool{cursor: pointer;}
 .modal .row{margin-top: 15px; margin-bottom: 15px;}
 .hidden{display: none;}
 .fileType{font-size: 10px; font-style: italic;}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.topbar > div > ul > li:last-child{width: 159px;}
+	.modal-dialog{margin-top: 20px !important;}
+	.rightbar .image-div{margin: 9px 11px;}
+}
+
+#minus-btn{width: 50px; height: 50px; background: url(../img/MinusSign.png); position: absolute; top: 560px; left: 600px; z-index: 100; display: none;}
+#plus-btn{width: 50px; height: 50px; background: url(../img/PlusSign.png); position: absolute; top: 560px; left: 660px; z-index: 100; display: none;}
+#arrow-left{width: 50px; height: 50px; background: url(../img/ArrowLeft.png); position: absolute; top: 560px; left: 540px; z-index: 100; display: none;}
+#arrow-up{width: 50px; height: 50px; background: url(../img/ArrowUp.png); position: absolute; top: 500px; left: 600px; z-index: 100; display: none;}
+#arrow-down{width: 50px; height: 50px; background: url(../img/ArrowDown.png); position: absolute; top: 560px; left: 600px; z-index: 100; display: none;}
+#arrow-right{width: 50px; height: 50px; background: url(../img/ArrowRight.png); position: absolute; top: 560px; left: 660px; z-index: 100; display: none;}

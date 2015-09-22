@@ -170,6 +170,12 @@
 		</div>
 		<div class="bottombar"></div>
 		<div id="canvas"></div>
+		<a id="minus-btn"></a>
+		<a id="plus-btn"></a>
+		<a id="arrow-left"></a>
+		<a id="arrow-up"></a>
+		<a id="arrow-down"></a>
+		<a id="arrow-right"></a>
 		<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -347,6 +353,7 @@
 			</form>
 		</div>
 		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/jquery.ui.widget.js"></script>
 		<script type="text/javascript" src="js/jquery.fileupload.js"></script>

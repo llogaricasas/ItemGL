@@ -21,7 +21,8 @@
 		buttonLeft: ['pointer-div','move-div','rotate-div','view-div','delete-div','camera-div','light-div','cube-div','sphere-div','scale-div','plane-div'],
 		currentAction: null,
 		currentObject: null,
-		textFile: null
+		textFile: null,
+		isMobile: false
 	}, options);
 	
   	var methods = {
@@ -67,7 +68,17 @@
 			methods.render();
 			methods.initListeners();		
 			options.core.renderer.render(options.core.scene, options.core.camera);
-			document.addEventListener("mousedown", methods.onDocumentMouseDown);
+			
+			var isiPad = navigator.userAgent.match(/iPad/i) != null;
+	        var isiPhone = navigator.userAgent.match(/iPhone/i) != null;
+	        if(isiPad || isiPhone){
+		        options.isMobile = true;
+		        var obj = document.getElementById(options.id);
+		        obj.addEventListener("touchstart", methods.onDocumentMouseDown);
+	        } else {
+		        options.isMobile = false;
+				document.addEventListener("mousedown", methods.onDocumentMouseDown);
+			}
 			document.addEventListener("keydown", methods.onDocumentKeyDown);
 		},
 		
@@ -75,15 +86,25 @@
 			var raycaster = new THREE.Raycaster();
 			var realPointer = {x:0, y:0};
 			
-			event.preventDefault();
+			if(options.isMobile){
+				if(event.changedTouches[0].pageX<51){realPointer.x = null;}
+				else if(event.changedTouches[0].pageX>50 && event.changedTouches[0].pageX<window.innerWidth-300){realPointer.x = event.changedTouches[0].pageX-50;}
+				else{realPointer.x = null;}
+				
+				if(event.changedTouches[0].pageY<51){realPointer.y = null;}
+				else if(event.changedTouches[0].pageY>50 && event.changedTouches[0].pageY<window.innerHeight-50){realPointer.y = event.changedTouches[0].pageY-50;}
+				else{realPointer.y = null;}	
+			} else {
+				event.preventDefault();
 			
-			if(event.clientX<51){realPointer.x = null;}
-			else if(event.clientX>50 && event.clientX<window.innerWidth-300){realPointer.x = event.clientX-50;}
-			else{realPointer.x = null;}
-			
-			if(event.clientY<51){realPointer.y = null;}
-			else if(event.clientY>50 && event.clientY<window.innerHeight-50){realPointer.y = event.clientY-50;}
-			else{realPointer.y = null;}
+				if(event.clientX<51){realPointer.x = null;}
+				else if(event.clientX>50 && event.clientX<window.innerWidth-300){realPointer.x = event.clientX-50;}
+				else{realPointer.x = null;}
+				
+				if(event.clientY<51){realPointer.y = null;}
+				else if(event.clientY>50 && event.clientY<window.innerHeight-50){realPointer.y = event.clientY-50;}
+				else{realPointer.y = null;}
+			}
 			
 			if(realPointer.x != null && realPointer.y != null){
 				options.core.mouse.x = (realPointer.x/options.core.renderer.domElement.clientWidth) * 2 - 1;
@@ -250,6 +271,30 @@
 			}
 		},
 		
+		arrowLeft: function(){
+			if(options.currentAction=='rotate'){
+	        	options.currentObject.rotation.y+=20;
+	        }
+        },
+        
+        arrowRight: function(){
+	        if(options.currentAction=='rotate'){
+	        	options.currentObject.rotation.y-=20;
+	        }
+        },
+        
+        arrowUp: function(){
+	        if(options.currentAction=='rotate'){
+	        	options.currentObject.rotation.x+=20;
+	        }
+        },
+        
+        arrowDown: function(){
+	        if(options.currentAction=='rotate'){
+	        	options.currentObject.rotation.x-=20;
+	        }
+        },
+		
 		computeOffset: function(){
 			var maxTrans  = {x:0, y:0, z:0};
 			var minTrans  = {x:0, y:0, z:0};
@@ -294,11 +339,23 @@
 	    	document.getElementsByTagName("body")[0].style.cursor = 'auto';
         },
         
+        hideMobileGUI: function(){
+	        document.getElementById('minus-btn').style.display = 'none';
+		    document.getElementById('plus-btn').style.display = 'none';
+		    document.getElementById('arrow-left').style.display = 'none';
+		    document.getElementById('arrow-right').style.display = 'none';
+		    document.getElementById('arrow-down').style.display = 'none';
+		    document.getElementById('arrow-up').style.display = 'none';
+        },
+        
         translateObject: function(){
 	    	methods.clearBackground();
 	    	document.getElementById('move-div').style.backgroundColor = "#E1B20E";
 	    	document.getElementsByTagName("body")[0].style.cursor = "url('cursor/Move.png'), auto";  
 	    	options.currentAction = 'translate';
+	    	if(options.isMobile){
+		    	methods.hideMobileGUI();
+	    	}
         },
         
         rotateObject: function(){
@@ -306,6 +363,14 @@
 	    	document.getElementById('rotate-div').style.backgroundColor = "#E1B20E";
 	    	document.getElementsByTagName("body")[0].style.cursor = "url('cursor/Rotate.png'), auto";
 	    	options.currentAction = 'rotate';
+	    	if(options.isMobile){
+		    	document.getElementById('minus-btn').style.display = 'none';
+				document.getElementById('plus-btn').style.display = 'none';
+		    	document.getElementById('arrow-left').style.display = 'block';
+			    document.getElementById('arrow-right').style.display = 'block';
+			    document.getElementById('arrow-down').style.display = 'block';
+			    document.getElementById('arrow-up').style.display = 'block';			    
+	    	}
         },
         
         scaleObject: function(){
@@ -313,54 +378,102 @@
 	    	document.getElementById('scale-div').style.backgroundColor = "#E1B20E";
 	    	document.getElementsByTagName("body")[0].style.cursor = "url('cursor/Scale.png'), auto";
 	    	options.currentAction = 'scale';
+	    	if(options.isMobile){
+		    	document.getElementById('arrow-left').style.display = 'none';
+			    document.getElementById('arrow-right').style.display = 'none';
+			    document.getElementById('arrow-down').style.display = 'none';
+			    document.getElementById('arrow-up').style.display = 'none';
+		    	document.getElementById('minus-btn').style.display = 'block';
+		    	document.getElementById('plus-btn').style.display = 'block';
+	    	}
         },
         
         hideObject: function(){
 	      	methods.clearBackground();
 	      	document.getElementById('view-div').style.backgroundColor = "#E1B20E";
-	      	options.currentAction = 'hide';  
+	      	options.currentAction = 'hide';
+	      	if(options.isMobile){
+		    	methods.hideMobileGUI();
+	    	}  
         },
         
         deleteObject: function(){
 	      	methods.clearBackground();
 	      	document.getElementById('delete-div').style.backgroundColor = "#E1B20E";
-	      	options.currentAction = 'delete';  
+	      	options.currentAction = 'delete';
+	      	if(options.isMobile){
+		    	methods.hideMobileGUI();
+	    	}  
         },
         
         addCamera: function(){
 	        methods.clearBackground();
 	      	document.getElementById('camera-div').style.backgroundColor = "#E1B20E";
-	      	options.currentAction = 'camera';  
+	      	options.currentAction = 'camera';
+	      	if(options.isMobile){
+		    	methods.hideMobileGUI();
+	    	}  
         },
         
         addLight: function(){
 	    	methods.clearBackground();    
 	      	document.getElementById('light-div').style.backgroundColor = "#E1B20E";
-	      	options.currentAction = 'light';	        
+	      	options.currentAction = 'light';
+	      	if(options.isMobile){
+		    	methods.hideMobileGUI();
+	    	}	        
         },
         
         addCube: function(){
 	        methods.clearBackground();    
 	      	document.getElementById('cube-div').style.backgroundColor = "#E1B20E";
 	      	options.currentAction = 'cube';
+	      	if(options.isMobile){
+		    	methods.hideMobileGUI();
+	    	}
         },
         
         addSphere: function(){
 	        methods.clearBackground();    
 	      	document.getElementById('sphere-div').style.backgroundColor = "#E1B20E";
 	      	options.currentAction = 'sphere';
+	      	if(options.isMobile){
+		    	methods.hideMobileGUI();
+	    	}
         },
         
         addPlane: function(){
 	        methods.clearBackground();    
 	      	document.getElementById('plane-div').style.backgroundColor = "#E1B20E";
 	      	options.currentAction = 'plane';
+	      	if(options.isMobile){
+		    	methods.hideMobileGUI();
+	    	}
         },
         
         moveView: function(){
 	    	methods.clearBackground();
 	    	document.getElementById('pointer-div').style.backgroundColor = "#E1B20E";
-	    	options.currentAction = 'pointer';    
+	    	options.currentAction = 'pointer';
+	    	if(options.isMobile){
+		    	methods.hideMobileGUI();
+	    	}    
+        },
+        
+        addScaleGUIObject: function(){
+	        if(options.currentAction=='scale'){
+				options.currentObject.scale.x+=0.1;
+				options.currentObject.scale.y+=0.1;
+				options.currentObject.scale.z+=0.1;
+			}
+        },
+        
+        substractScaleGUIObject: function(){
+	       if(options.currentAction=='scale'){
+				options.currentObject.scale.x-=0.1;
+				options.currentObject.scale.y-=0.1;
+				options.currentObject.scale.z-=0.1;
+			} 
         },
         
         changeMaterialColor: function(event){
@@ -451,6 +564,14 @@
 	        document.getElementById('executeScript').addEventListener('click', methods.executeScript);
 	        document.getElementById('exportFile').addEventListener('click', methods.exportScene);
 	        
+	        document.getElementById('minus-btn').addEventListener('click', methods.substractScaleGUIObject);
+	        document.getElementById('plus-btn').addEventListener('click', methods.addScaleGUIObject);
+	        
+	        document.getElementById('arrow-left').addEventListener('click', methods.arrowLeft);
+			document.getElementById('arrow-right').addEventListener('click', methods.arrowRight);
+			document.getElementById('arrow-down').addEventListener('click', methods.arrowDown);
+			document.getElementById('arrow-up').addEventListener('click', methods.arrowUp);
+	        
 	        var colorWrappers = document.getElementsByClassName('color-div');
 	        for(var i=0;i<colorWrappers.length;i++){
 		        colorWrappers[i].addEventListener('click', methods.changeMaterialColor);
@@ -539,8 +660,6 @@
 					     		var loader = new THREE.OBJLoader();
 						 		loader.load(data.result.url, function(object){
 						 			object.traverse(function(child){
-							 			child.isSelectable = true;
-										child.isHidden = false;
 										var color = new THREE.Color('#FFFFFF');
 										var mat = new THREE.MeshPhongMaterial();
 										mat.map = null;
@@ -549,6 +668,8 @@
 										mat.needsUpdate = true;
 										child.material = mat;
 									});
+									object.isSelectable = true;
+									object.isHidden = false;
 									object.scale.x = object.scale.y = object.scale.z = 0.1;
 									options.core.scene.add(object);
 								});
@@ -559,7 +680,8 @@
 			        }
 		        }
 		    });
-        	}
+        },
+        	
 	};
 	
 	$.fn.ItemGL = function(method){

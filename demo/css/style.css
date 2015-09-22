@@ -1,8 +1,16 @@
+/**
+* The CustomizeItem plugin implements an application that
+* simply lets the user customize an item using WebGL and ThreeJs.
+*
+* @author  Llogari Casas
+* @version 1.0
+* @since   2015-02-21 
+*/
+
 body{background: #333; font-family: sans-serif;}
 body, html{height: 100%; padding: 0; margin: 0;}
 
 /* TOPBAR */
-
 .topbar{background: #222; position: absolute; top: 0; left: 0; width: 100%; height: 50px; color: white; z-index: 2;}
 .topbar > div{height: 50px;margin-left: 50px;border-left: 1px solid white;}
 .topbar > div > ul{list-style-type: none; display: inline; float: left; font-size: 14px;}
@@ -15,7 +23,6 @@ body, html{height: 100%; padding: 0; margin: 0;}
 .topbar .section div.tool-wrapper{float: left;}
 
 /* LEFTBAR */
-
 .leftbar{background: #222; position: absolute; top: 0; left: 0; width: 50px; height: 100%; color: white;}
 .leftbar .section{width: 100%; height: auto; border-top: 1px solid white; padding-bottom: 40px;}
 .section div.tool-wrapper{padding: 15px; width: 20px; height: 20px;}
@@ -24,13 +31,10 @@ body, html{height: 100%; padding: 0; margin: 0;}
 a.tool{cursor: pointer;}
 .tool-wrapper{cursor: pointer;}
 
-
 /* BOTTOM BAR */
-
 .bottombar{background: #222; position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; color: white; z-index: 2;}
 
 /* RIGHT BAR */
-
 .rightbar{background: #222; position: absolute; top: 0; right: 0; width: 300px; height: 100%; color: white; z-index: 1;}
 .rightbar .section:first-child{margin-top: 50px;}
 .rightbar .section h2{font-size: 14px; margin: 0; padding: 0;}
@@ -43,17 +47,13 @@ a.tool{cursor: pointer;}
 .rightbar .color-div{width: 21px; height: 21px; margin: 11px; float: left; cursor: pointer;}
 .rightbar .image-div{width: 21px; height: 21px; margin: 11px; float: left; cursor: pointer;}
 
-
 /* CANVAS */
-
 #canvas{position: absolute; left: 50px; top: 50; width: auto; height: auto;}
+#scriptText{width: 100%; height: 150px; border: 1px solid #999 !important;}
 .logobar{top: 0; left: 0; position: absolute; height: 50px; width: 50px; background: url(../img/UILogo.png); z-index: 100;}
-
 .dropdown-menu{background-color: #222 !important; left: -1px !important;}
 .dropdown-menu > li > a{color: white !important;}
 .dropdown-menu > li > a:hover{background-color: rgb(225, 178, 14) !important;}
-
-#scriptText{width: 100%; height: 150px; border: 1px solid #999 !important;}
 .modal-content{background-color: #222 !important;}
 .modal-title{color: white !important;}
 .close span{color: white;}
@@ -65,3 +65,16 @@ a.tool{cursor: pointer;}
 .modal .row{margin-top: 15px; margin-bottom: 15px;}
 .hidden{display: none;}
 .fileType{font-size: 10px; font-style: italic;}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.topbar > div > ul > li:last-child{width: 159px;}
+	.modal-dialog{margin-top: 20px !important;}
+	.rightbar .image-div{margin: 9px 11px;}
+}
+
+#minus-btn{width: 50px; height: 50px; background: url(../img/MinusSign.png); position: absolute; top: 560px; left: 600px; z-index: 100; display: none;}
+#plus-btn{width: 50px; height: 50px; background: url(../img/PlusSign.png); position: absolute; top: 560px; left: 660px; z-index: 100; display: none;}
+#arrow-left{width: 50px; height: 50px; background: url(../img/ArrowLeft.png); position: absolute; top: 560px; left: 540px; z-index: 100; display: none;}
+#arrow-up{width: 50px; height: 50px; background: url(../img/ArrowUp.png); position: absolute; top: 500px; left: 600px; z-index: 100; display: none;}
+#arrow-down{width: 50px; height: 50px; background: url(../img/ArrowDown.png); position: absolute; top: 560px; left: 600px; z-index: 100; display: none;}
+#arrow-right{width: 50px; height: 50px; background: url(../img/ArrowRight.png); position: absolute; top: 560px; left: 660px; z-index: 100; display: none;}
