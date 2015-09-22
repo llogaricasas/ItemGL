@@ -8,8 +8,8 @@
 <h3>Requirements</h3>
 <pre>
   &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"&gt;&lt;/script&gt;
-  &lt;script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"&gt;&lt;/script&gt;
   &lt;script src="https://ajax.googleapis.com/ajax/libs/threejs/r69/three.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"&gt;&lt;/script&gt;
   
   &lt;script src="../js/ItemGL.min.js"&gt;&lt;/script&gt;
 </pre>
