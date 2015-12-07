@@ -15,8 +15,7 @@
 </pre>
 <h3>Initialization</h3>
 <p>To initialize the plugin call the constructor after $(document).ready() as below:</p>
-<pre>  
-  $(document).ready(function(e) {
+<pre>$(document).ready(function(e) {
 	$("#canvas").ItemGL();
   });
 </pre>
